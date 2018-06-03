@@ -5,14 +5,38 @@ import Cookpit from '../components/Cookpit/Cookpit';
 
 class App extends Component {
 
-  state = {
-    persons: [
-      { id: 'gfhd', name: 'Max', age: 28 },
-      { id: 'hsgd', name: 'Manu', age: 29 },
-      { id: 'abcd', name: 'Stephanie', age: 26 }
-    ],
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log('Persons', props);
+    this.state = {
+      persons: [
+        { id: 'gfhd', name: 'Max', age: 28 },
+        { id: 'hsgd', name: 'Manu', age: 29 },
+        { id: 'abcd', name: 'Stephanie', age: 26 }
+      ],
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount()');
+  }
+
+  //===This is the modern Approach of initialize state
+  //===instead of using constructor
+
+  // state = {
+  //   persons: [
+  //     { id: 'gfhd', name: 'Max', age: 28 },
+  //     { id: 'hsgd', name: 'Manu', age: 29 },
+  //     { id: 'abcd', name: 'Stephanie', age: 26 }
+  //   ],
+  //   showPersons: false
+  // };
 
   deletePersonHandler = (personIndex) => {
     //const persons = this.state.persons.slice();
@@ -51,6 +75,8 @@ class App extends Component {
   };
 
   render() {
+
+    console.log('[App.js] Inside render())');
 
     let persons = null;
 
