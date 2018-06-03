@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cookpit from '../components/Cookpit/Cookpit';
+import WithClass from '../hoc/WithClass';
 
 class App extends PureComponent {
 
@@ -106,7 +107,7 @@ class App extends PureComponent {
 
 
     return (
-      <div className={classes.App}>
+      <WithClass classes={classes.App}>
         <button onClick={() => { this.setState({ showPersons: true }) }}>Show Person</button>
         <Cookpit
           persons={this.state.persons}
@@ -115,7 +116,7 @@ class App extends PureComponent {
 
         {persons}
 
-      </div>
+      </WithClass>
     );
   }
 }
