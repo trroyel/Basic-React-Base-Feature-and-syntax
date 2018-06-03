@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cookpit from '../components/Cookpit/Cookpit';
 
-class App extends Component {
+class App extends PureComponent {
 
   constructor(props) {
     super(props);
@@ -26,10 +26,14 @@ class App extends Component {
     console.log('[App.js] Inside componentDidMount()');
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[UPDATE App.js]=> shouldComponentUpdate: ', nextProps, nextState);
-    return true;
-  }
+  // We dont need to check shouldComponentUpdate() if we extends PureComponent. 
+  // It check all props with previous props automatically.
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[UPDATE App.js]=> shouldComponentUpdate: ', nextProps, nextState);
+  //   return nextState.persons !== this.state.persons ||
+  //     nextState.showPersons !== this.state.showPersons;
+  // }
 
   componentWillUpdate(nextProps, nextState) {
     console.log('[UPDATE App.js]=> componentWillUpdate: ', nextProps, nextState);
@@ -103,6 +107,7 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
+        <button onClick={() => { this.setState({ showPersons: true }) }}>Show Person</button>
         <Cookpit
           persons={this.state.persons}
           showPersons={this.state.showPersons}
