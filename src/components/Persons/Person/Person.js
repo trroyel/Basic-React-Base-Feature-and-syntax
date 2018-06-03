@@ -27,6 +27,13 @@ class Person extends Component {
                 <input type="text" onChange={this.props.changed} value={this.props.name} />
             </div>
         );
+
+        //we can return an array without higher order HTML Root components
+        // return [
+        //     <p onClick={this.props.click}> Hi, i'm {this.props.name} , i'm {this.props.age} years old </p>,
+        //     <p>{this.props.children}</p>,
+        //     <input type="text" onChange={this.props.changed} value={this.props.name} />
+        // ];
     };
 }
 
