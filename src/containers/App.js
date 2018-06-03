@@ -26,6 +26,19 @@ class App extends Component {
     console.log('[App.js] Inside componentDidMount()');
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[UPDATE App.js]=> shouldComponentUpdate: ', nextProps, nextState);
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('[UPDATE App.js]=> componentWillUpdate: ', nextProps, nextState);
+  }
+
+  componentDidUpdate() {
+    console.log('[UPDATE App.js]=> componentDidUpdate: ');
+  }
+
   //===This is the modern Approach of initialize state
   //===instead of using constructor
 
