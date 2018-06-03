@@ -7,7 +7,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    console.log('Persons', props);
+    console.log('[App.js] Inside Constructor', props);
     this.state = {
       persons: [
         { id: 'gfhd', name: 'Max', age: 28 },
@@ -91,7 +91,6 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Cookpit
-          appTitle={this.props.title}
           persons={this.state.persons}
           showPersons={this.state.showPersons}
           clicked={this.togglePersonsHandler} />

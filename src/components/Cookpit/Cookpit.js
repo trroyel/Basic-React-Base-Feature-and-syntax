@@ -18,7 +18,6 @@ const cookpit = (props) => {
 
     return (
         <div className={classes.Cookpit}>
-            <h1>{props.appTitle}</h1>
             <h1> Hi, I'm React App </h1>
             <p className={assignedClasses.join(' ')}> This is Really Working! </p>
             <button
