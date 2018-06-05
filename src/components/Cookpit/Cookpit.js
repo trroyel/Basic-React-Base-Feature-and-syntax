@@ -24,6 +24,8 @@ const cookpit = (props) => {
             <button
                 className={btnClass}
                 onClick={props.clicked}>Toogle Person</button>
+
+            <button onClick={props.login}>Log In </button>
         </Aux>
     );
 };
