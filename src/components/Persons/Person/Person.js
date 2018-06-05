@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import classes from './Person.css';
 import withClass from '../../../hoc/withClass';
 import Aux from '../../../hoc/Aux';
+import { AuthContext } from '../../../containers/App'
 
 class Person extends Component {
 
@@ -38,7 +39,10 @@ class Person extends Component {
 
         return (
             <Aux>
-                {this.props.isAuthenticated ? 'This is Authenticated' : null}
+                <AuthContext.Consumer>
+                    {auth => auth ? 'This is Authenticated' : null}
+                </AuthContext.Consumer>
+
                 <p onClick={this.props.click}> Hi, i'm {this.props.name} , i'm {this.props.age} years old </p>
                 <p>{this.props.children}</p>
                 <input
