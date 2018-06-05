@@ -7,6 +7,7 @@ class Person extends Component {
 
     constructor(props) {
         super(props);
+        this.inputElement = React.createRef();
         console.log('[Person.js] Inside constructor(): ', props);
     }
 
@@ -16,9 +17,19 @@ class Person extends Component {
 
     componentDidMount() {
         console.log('[Person.js] Inside componentDidMount()');
+        console.log('Position => ', this.props.position);
+
         if (this.props.position === 0) {
-            this.inputElement.focus();
+            //console.log('Worked..');
+            this.inputElement.current.focus();
         }
+    }
+
+    focusMethod() {
+        console.log('\n\n==== Before calling focus method=== \n\n');
+        this.inputElement.current.focus();
+        console.log('\n\n==== After calling focus method=== \n\n');
+
     }
 
     render() {
@@ -30,7 +41,7 @@ class Person extends Component {
                 <p onClick={this.props.click}> Hi, i'm {this.props.name} , i'm {this.props.age} years old </p>
                 <p>{this.props.children}</p>
                 <input
-                    ref={(inp) => { this.inputElement = inp }}
+                    ref={this.inputElement}
                     type="text"
                     onChange={this.props.changed}
                     value={this.props.name} />
@@ -47,3 +58,4 @@ class Person extends Component {
 }
 
 export default withClass(Person, classes.Person);
+//export default Person;
